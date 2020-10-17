@@ -24,14 +24,18 @@ describe("Bouling game", () => {
   });
 
   it("should score 24 for a strike followed by 3 and 4 balls", () => {
-    g.roll(10); // strike
+    rollStrike();
     g.roll(3);
     g.roll(4);
     rollMany(16, 0);
     expect(g.score()).toBe(24);
   });
 
-  function rollSpare() {
+  function rollStrike(): void {
+    g.roll(10);
+  }
+
+  function rollSpare(): void {
     g.roll(5);
     g.roll(5);
   }
