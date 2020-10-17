@@ -1,8 +1,13 @@
 import { Game } from './game'
 
+let g: Game = new Game()
+
+beforeEach(() => {
+    g = new Game()
+})
+
 describe("Bouling game", () => {
   it("should score 0 for gutter game", () => {
-    const g: Game = new Game()
     for (let i = 0; i < 20; i++) {
         g.roll(0);
     }
@@ -10,7 +15,6 @@ describe("Bouling game", () => {
   });
 
   it('should score 20 for all ones game', () => {
-    const g: Game = new Game()
     for (let i = 0; i < 20; i++) {
         g.roll(1);
     }
