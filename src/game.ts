@@ -4,15 +4,15 @@ export class Game {
 
   score(): number {
     let score = 0;
-    let i = 0;
+    let frameIndex = 0;
     for (let frame = 0; frame < 10; frame++) {
-      if (this.rolls[1] + this.rolls[1 + i] === 10) {
+      if (this.rolls[1] + this.rolls[1 + frameIndex] === 10) {
         // spare
-        score += 10 + this.rolls[i + 2]; // first play of next frame
-        i += 2;
+        score += 10 + this.rolls[frameIndex + 2]; // first play of next frame
+        frameIndex += 2;
       } else {
-          score += this.rolls[i] + this.rolls[i + 1];
-          i += 2;
+        score += this.rolls[frameIndex] + this.rolls[frameIndex + 1];
+        frameIndex += 2;
       }
     }
     return score;
