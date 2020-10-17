@@ -17,12 +17,12 @@ describe("Bouling game", () => {
     expect(g.score()).toBe(20);
   });
 
-//   it('should score 16 with a spare followed by a 3 ball', () => {
-//       g.roll(5)
-//       g.roll(5) // spare
-//       g.roll(3)
-//       expect(g.score).toBe(16)
-//   });
+  it('should score 16 with a spare followed by a 3 ball', () => {
+      g.roll(5)
+      g.roll(5) // spare
+      g.roll(3)
+      expect(g.score()).toBe(16)
+  });
 
   function rollMany(n: number, pins: number): void {
     for (let i = 0; i < n; i++) {
