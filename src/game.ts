@@ -6,8 +6,14 @@ export class Game {
     let score = 0;
     let i = 0;
     for (let frame = 0; frame < 10; frame++) {
-      score += this.rolls[i] + this.rolls[i + 1];
-      i += 2;
+      if (this.rolls[1] + this.rolls[1 + i] === 10) {
+        // spare
+        score += 10 + this.rolls[i + 2]; // first play of next frame
+        i += 2;
+      } else {
+          score += this.rolls[i] + this.rolls[i + 1];
+          i += 2;
+      }
     }
     return score;
   }
