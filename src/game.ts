@@ -6,15 +6,14 @@ export class Game {
     let score = 0;
     let frameIndex = 0;
     for (let frame = 0; frame < 10; frame++) {
-      if (this.rolls[frameIndex] === 10) {
-        // strike
+      if (this.isStrike(frameIndex)) {
         score += 10 + this.strikeBonus(frameIndex);
         frameIndex++;
       } else if (this.isSpare(frameIndex)) {
         score += 10 + this.spareBonus(frameIndex);
         frameIndex += 2;
       } else {
-        score += this.sumOfBallsInFrame(frameIndex)
+        score += this.sumOfBallsInFrame(frameIndex);
         frameIndex += 2;
       }
     }
@@ -22,7 +21,7 @@ export class Game {
   }
 
   private sumOfBallsInFrame(frameIndex: number): number {
-      return this.rolls[frameIndex] + this.rolls[frameIndex + 1];
+    return this.rolls[frameIndex] + this.rolls[frameIndex + 1];
   }
 
   private strikeBonus(frameIndex: number): number {
@@ -31,6 +30,10 @@ export class Game {
 
   private spareBonus(frameIndex: number): number {
     return this.rolls[frameIndex + 2];
+  }
+
+  private isStrike(frameIndex: number): boolean {
+    return this.rolls[frameIndex] === 10;
   }
 
   private isSpare(frameIndex: number): boolean {
