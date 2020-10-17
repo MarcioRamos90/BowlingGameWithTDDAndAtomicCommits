@@ -23,9 +23,17 @@ describe("Bouling game", () => {
     expect(g.score()).toBe(16);
   });
 
+  it("should score 24 for a strike followed by 3 and 4 balls", () => {
+    g.roll(10); // strike
+    g.roll(3);
+    g.roll(4);
+    rollMany(16, 0);
+    expect(g.score()).toBe(24);
+  });
+
   function rollSpare() {
     g.roll(5);
-    g.roll(5); // spare
+    g.roll(5);
   }
 
   function rollMany(n: number, pins: number): void {
